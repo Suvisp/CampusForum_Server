@@ -41,5 +41,5 @@ const insertPost = (newpost, cb) => {
 // }
 
 
-module.exports = { getPosts, getPost }
-//insertPost, updatePost, deletePost
+module.exports = { getPosts, getPost, insertPost }
+// updatePost, deletePost
