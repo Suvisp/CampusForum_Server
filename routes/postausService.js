@@ -1,3 +1,18 @@
+const Pool = require('pg').Pool;
+require('dotenv').config();
+// Get Postgres entry information from dot dot dot dot .. rebooot : dot env
+const USER = process.env.PGUSER;
+const PASSWORD = process.env.PGPASSWORD;
+
+const conopts = {
+    user: USER,
+    password: PASSWORD,
+    host: 'localhost',
+    database: 'forumdata',
+    port: 5432
+};
+
+const pool = new Pool(conopts);
 
 const getPosts = (cb) => {
     pool.query('SELECT * from posts ORDER BY post_id', (err, results) => {
@@ -41,5 +56,5 @@ const insertPost = (newpost, cb) => {
 // }
 
 
-module.exports = { getPosts, getPost }
-//insertPost, updatePost, deletePost
+module.exports = { getPosts, getPost, insertPost }
+// updatePost, deletePost
