@@ -8,7 +8,7 @@ const conopts = {
     user: USER,
     password: PASSWORD,
     host: 'localhost',
-    database: 'forumdata',
+    database: 'forum',
     port: 5432
 };
 
@@ -39,22 +39,22 @@ const insertPost = (newpost, cb) => {
     })
 }
 
-// const updatePost = (post, post_id, cb) => {
-//     const { post_nametag, post_content } = post;
-//     pool.query('UPDATE posts SET post_nametag=$1, post_content=$2 WHERE post_id=$3', [post_nametag, post_content, post_id], (err, results) => {
-//         if (err) throw err;
-//         console.dir(results);
-//         cb(results.rowCount);
-//     })
-// }
-// const deletePost = (post_id, cb) => {
-//     pool.query('DELETE FROM posts WHERE post_id=$1', [post_id], (err, results) => {
-//         if (err) throw err;
-//         console.dir(results);
-//         cb(results.rowCount);
-//     })
-// }
+const updatePost = (post, post_id, cb) => {
+    const { post_nametag, post_content } = post;
+    pool.query('UPDATE posts SET post_nametag=$1, post_content=$2 WHERE post_id=$3', [post_nametag, post_content, post_id], (err, results) => {
+        if (err) throw err;
+        console.dir(results);
+        cb(results.rowCount);
+    })
+}
+
+const deletePost = (post_id, cb) => {
+    pool.query('DELETE FROM posts WHERE post_id=$1', [post_id], (err, results) => {
+        if (err) throw err;
+        console.dir(results);
+        cb(results.rowCount);
+    })
+}
 
 
-module.exports = { getPosts, getPost, insertPost }
-// updatePost, deletePost
+module.exports = { getPosts, getPost, insertPost, deletePost, updatePost }
