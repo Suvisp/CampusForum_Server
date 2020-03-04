@@ -5,7 +5,7 @@ var postausService = require ('./postausService')
 /* GET users listing. */
 //GET /api/postaus
 router.get('/', function(req, res, next) {
-  res.send('Ja yhteys on!');
+//   res.send('Ja yhteys on!');
   postausService.getPosts((rows)=>{
       res.json(rows);
   })
@@ -30,25 +30,26 @@ router.post('/', function(req, res, next){
  })
 
 //  //PUT /api/postaus/1
-// router.put('/:id', function(req, res, next){
-//     postausService.updatePost(req.body, req.params.id, (rowCount)=>{
-//       if(rowCount>0)
-//       res.status(200).json({message:'Muokkaus onnistui'});
-//       else{
-//         res.status(400).json({message:'Oho, kävi virhe!'});
-//       }
-//     })
-//   })
-//   //DELETE /api/postaus/1
-//   router.delete('/:id', function(req, res, next){
-//     postausService.deletePost(req.params.id, (rowCount)=>{
-//       if(rowCount>0)
-//       res.status(200).json({message:'Poisto onnistui!'});
-//       else{
-//         res.status(400).json({message:'Oho, kävi virhe!'});
-//       }
-//     })
-//   })
+router.put('/:id', function(req, res, next){
+    postausService.updatePost(req.body, req.params.id, (rowCount)=>{
+      if(rowCount>0)
+      res.status(200).json({message:'Muokkaus onnistui'});
+      else{
+        res.status(400).json({message:'Oho, kävi virhe!'});
+      }
+    })
+  })
+
+//DELETE /api/postaus/1
+  router.delete('/:id', function(req, res, next){
+    postausService.deletePost(req.params.id, (rowCount)=>{
+      if(rowCount>0)
+      res.status(200).json({message:'Poisto onnistui!'});
+      else{
+        res.status(400).json({message:'Oho, kävi virhe!'});
+      }
+    })
+  })
 
 
 
