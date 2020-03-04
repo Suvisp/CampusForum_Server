@@ -8,7 +8,7 @@ const conopts = {
     user: USER,
     password: PASSWORD,
     host: 'localhost',
-    database: 'forumdata',
+    database: 'forum',
     port: 5432
 };
 
@@ -38,6 +38,8 @@ const insertPost = (newpost, cb) => {
         cb(results.rowCount);
     })
 }
+
+const 
 
 // const updatePost = (post, post_id, cb) => {
 //     const { post_nametag, post_content } = post;

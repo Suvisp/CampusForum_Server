@@ -6,7 +6,7 @@ var postausService = require ('./postausService')
 //GET /api/postaus
 router.get('/', function(req, res, next) {
   res.send('Ja yhteys on!');
-  postausService.getPosts((row)=>{
+  postausService.getPosts((rows)=>{
       res.json(rows);
   })
 });
