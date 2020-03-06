@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 //GET /api/postaukset/1
 router.get('/:id', function(req, res, next){
     postausService.getPost(req.params.id,(rows)=>{
-     res.json(rows);
+     res.json(rows[0]);
    })
  })
 
