@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var postausRouter = require('./routes/postaus');
 
 var app = express();
+app.use(cors());
 
 app.use(cors());
 // view engine setup

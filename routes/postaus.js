@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var postausService = require ('./postausService')
+var postausService = require ('../postausService')
 
 /* GET users listing. */
 //GET /api/postaus
