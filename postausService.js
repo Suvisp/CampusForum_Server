@@ -15,7 +15,7 @@ const conopts = {
 const pool = new Pool(conopts);
 
 const getPosts = (cb) => {
-    pool.query('SELECT * from posts ORDER BY post_id', (err, results) => {
+    pool.query('SELECT * from posts ORDER BY post_id DESC', (err, results) => {
         if (err) throw err;
         console.dir(results);
         cb(results.rows);
