@@ -35,12 +35,13 @@
 
 
 -- posts in the topics
--- DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS posts;
 
 CREATE TABLE posts (
 post_id SERIAL PRIMARY KEY NOT NULL,
 post_nametag VARCHAR (30) NOT NULL,
-post_content        TEXT NOT NULL
+post_content        TEXT NOT NULL,
+post_count INT
 -- post_date       DATE NOT NULL
 -- post_topic      INT(8) NOT NULL,
 -- post_by     INT(8) NOT NULL,
